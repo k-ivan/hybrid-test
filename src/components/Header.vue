@@ -43,11 +43,11 @@ export default {
       links: [
         {
           title: 'Home',
-          href: '/'
+          href: { name: 'Home' }
         },
         {
           title: 'Dashboard',
-          href: '/dashboard'
+          href: { name: 'Dasboard' }
         }
       ]
     }
