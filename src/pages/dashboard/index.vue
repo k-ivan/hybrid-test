@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="dashboard-header">
     <h1>Posts</h1>
     <div class="actions">
       <button
@@ -63,7 +63,7 @@
         </tbody>
       </table>
     </div>
-    <ol class="pagination">
+    <ol class="dashboard-pagination pagination">
       <li
         class="pagination__item pagination__item--prev"
         :class="{ 'is-disabled': !hasPrev }"
@@ -177,7 +177,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
+.dashboard-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -193,7 +193,7 @@ header {
   padding: 50px 0;
   font-size: 18px;
 }
-.pagination {
+.dashboard-pagination.pagination {
   justify-content: center;
 }
 </style>
