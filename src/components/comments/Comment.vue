@@ -20,6 +20,7 @@
           Reply
         </button>
         <button
+          v-if="isAdmin"
           class="btn btn--link"
           @click="handleRemove"
         >
@@ -50,6 +51,7 @@
 import { removeComment } from '../../api/posts.js';
 import CommentForm from './CommentForm.vue';
 import CommentReplies from './CommentReplies.vue';
+import fakeStore from '../../fakeStore.js';
 
 export default {
   name: 'Comment',
@@ -74,6 +76,9 @@ export default {
     }
   },
   computed: {
+    isAdmin() {
+      return fakeStore.isAdmin
+    },
     date() {
       return this.$timeAgo(this.comment.date)
     },
