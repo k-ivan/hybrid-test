@@ -136,9 +136,6 @@ export default {
       this.v$.$touch()
       if (this.v$.$invalid) return;
 
-      console.log(this.text);
-
-
       this.$emit('save', {
         title: this.title,
         text: this.$sanitizeHtml((this.text), {
