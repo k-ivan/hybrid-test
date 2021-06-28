@@ -135,13 +135,13 @@ export default {
     },
     selectAll: {
       get() {
-        return this.posts ? this.selected.length == this.posts.length : false;
+        return this.posts ? this.selected.length === this.posts.length : false;
       },
       set(value) {
         const selected = [];
 
         if (value) {
-          this.posts.forEach(user => selected.push(user.id));
+          this.posts.forEach(post => selected.push(post.id));
         }
 
         this.selected = selected;
@@ -163,7 +163,7 @@ export default {
     handleRemove() {
       const posts = removePosts(this.selected);
       this.allPosts = posts;
-      this.selectAll = [];
+      this.selectAll = false;
       this.page = 1;
     },
     handlePrev() {

@@ -16,27 +16,27 @@ export default {
   props: {
     distance: {
       type: Number,
-      'default': 0
+      default: 0
     },
     throttle: {
       type: Number,
-      'default': 0
+      default: 0
     },
     parentSelector: {
       type: String,
-      'default': null
+      default: null
     },
     loading: {
       type: Boolean,
-      'default': false
+      default: false
     },
     force: {
       type: Boolean,
-      'default': false
+      default: false
     }
   },
   emits: ['infinite'],
-  mounted () {
+  mounted() {
     this.scrollHandler = throttle(this.scroll, this.throttle)
 
     if (this.parentSelector) {
@@ -51,7 +51,7 @@ export default {
 
     if (this.force) this.$emit('infinite')
   },
-  beforeUnmount () {
+  beforeUnmount() {
     if (this.scrollable) {
       this.scrollable.removeEventListener('scroll', this.scrollHandler)
       delete this.scrollable
@@ -60,7 +60,7 @@ export default {
     }
   },
   methods: {
-    isBottom () {
+    isBottom() {
       if (this.scrollable) {
         return (this.scrollable.clientHeight + this.scrollable.scrollTop >= this.scrollable.scrollHeight - this.distance)
       } else {
@@ -70,7 +70,7 @@ export default {
         return bottomEl <= bottomViewport && window.pageYOffset < bottomEl
       }
     },
-    scroll () {
+    scroll() {
       if (this.isBottom()) {
         this.$emit('infinite')
       }
